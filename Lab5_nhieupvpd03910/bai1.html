@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        
+        function display(){
+          var ten = document.getElementById("name");
+          var layTen = document.getElementById("pro");
+          ten.innerHTML = layTen.innerHTML;
+          var qty = document.getElementById("qty");
+          var amount = document.getElementById("amount");
+          amount.innerHTML = qty.value * pro.getAttribute("data-price");
+        }
+    </script>
+</head>
+<body>
+    <label id="pro" data-price="1950">iPhone 9</label>
+    <input id="qty" type="number" />
+    <button id="bam" onclick="display()" >OK</button>
+    <hr />
+    <h3>Name: <span id="name"></span></h3>
+    <h3>Amount: $<span id="amount"></span></h3>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>FPT POLY</title>
+    <script>
+        var sV = new Object();
+        sV.hoten = prompt("Nhập họ và tên:");
+        sV.diem = prompt("Điểm: ");
+        sV.hienThi = function () {
+            var linebreak = "<br>";
+            if (this.diem >= 5) {
+                this.hocluc = "Đậu";
+            } else {
+                this.hocluc = "Rớt";
+            }
+            document.write("Họ và tên: " + this.hoten);
+            document.write(linebreak);
+            document.write("\nĐiểm: " + this.diem);
+            document.write(linebreak);
+            document.write("\nHọc Lực: " + this.hocluc);
+        }
+    </script>
+</head>
+<body>
+   <button onclick="sV.hienThi()">Hiển thị</button>
+</body>
+</html>

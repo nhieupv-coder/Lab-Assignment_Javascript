@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        #abc {
+            position: absolute;
+            width:100%;
+          
+        }
+        .container {
+           position:relative;
+           left:30%;
+            width:500px;
+            margin: 20px;
+        }
+        .container > form > div > fieldset{
+            width:450px;
+            height:30px;
+        }
+        label {
+          line-height:30px;
+        }
+        input[type = text]{
+            width:450px;
+            box-shadow:1px 1px 5px gray;
+            border:none;
+            height:25px;
+            border-radius:3px;
+        }
+        select{
+            width: 450px;
+        }
+        input[type = checkbox]{
+          margin-left:5px;
+        }
+        select {
+            width: 450px;
+            box-shadow: 1px 1px 5px gray;
+            border: none;
+            height: 25px;
+        }
+        button{
+            height:30px;
+            width:100px;
+            border-radius:30px;
+            box-shadow:inset 2px 2px 10px gray;
+            border:none;
+        }
+        
+    </style>
+    <script>
+        function dangki() { 
+            var mSV = document.getElementById("ma");
+            var h = document.getElementById("hvt");
+            var e = document.getElementById("em");
+            var gT = document.getElementsByName("G_T");
+            var qT = document.getElementById("QT");
+            var Ghi_chu = document.getElementById("ghi_chu");
+            //không được để trống masv/email/họ và tên
+            if (mSV.value == "") {
+               alert("Không được để trống Mã SV");
+                mSV.style.backgroundColor = "yellow";
+                return false;
+            } else { mSV.style.backgroundColor = "white"; }
+            if (h.value == "") {
+                alert("Không được để trống Họ và tên");
+                h.style.backgroundColor = "yellow";
+                return false;
+            } else { h.style.backgroundColor = "white"; }
+            if (e.value == "") {
+                alert("Không được để trống email");
+                e.style.backgroundColor = "yellow";
+                return false;
+            } else {
+                //Kiểm tra tính hợp lệ của email
+                var email = document.getElementById("em");
+                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if (e.value != "") {
+                    //sử dụng phương thức test để kiểm tra sự giống nhau giữa 2 chuỗi
+                    if (!filter.test(email.value)) {
+                        alert('Hay nhap dia chi email hop le.\nExample@gmail.com');
+                        e.style.backgroundColor = "yellow";
+                        return false;
+                    } else { e.style.backgroundColor = "white"; }
+              } 
+            }
+            //Kiểm tra đã chọn giới tính chưa ?
+            if ((gT[0].checked == false) && (gT[1].checked == false)) {
+                alert("Bạn Chưa chọn giới tính");
+                return false;
+            }
+            //Kiểm tra sở thích:
+            var kt=0;
+            var st = document.getElementsByName("st");
+            for (var i = 0; i < st.length; i++) {
+                if(st[i].checked == true){ kt++ }
+            }
+            if (kt == 0) {
+                alert("Bạn chưa chọn sở thích!\n vui lòng chọn ít nhất 1 sở thích");
+                return false;
+            }
+            //Kiểm tra quốc tịch đã chọn hay chưa ?
+            if (qT.value === 'Chọn Quốc tịch') {
+                alert("bạn chưa chọn quốc tịch");
+                return false;
+      }
+            //Kiểm tra ít hơn 200 kí tự ở phần ghi chú
+            if (Ghi_chu.value.length >= 200) {
+                alert("Ban nhập vượt quá số kí tự");
+                Ghi_chu.style.backgroundColor = "yellow";
+                return false;
+            } else { Ghi_chu.style.backgroundColor = "white"; }
+            alert("Thông tin bạn đã được gửi tới server -_-");
+            return true;
+        }
+        
+    </script>
+</head>
+<body >
+    <div id="abc">
+        <div class="container">
+            <h2 style="text-transform:uppercase;">Đăng kí thành viên</h2>
+            <br />
+            <form method="get" onsubmit="return dangki()">
+                <div>
+                    <label>Mã sinh viên:<p style="color:red; display:inline-block;">(*)</p></label><br />
+                    <input id="ma" type="text" /><br />
+                    <span style="display:none;">Bạn chưa nhập mã SV</span>
+                </div>
+                <div>
+                    <label>Họ Và Tên:<p style="color:red; display:inline-block;">(*)</p></label><br />
+                    <input id="hvt" type="text" /><br />
+                </div>
+                <div>
+                    <label>Email:<p style="color:red; display:inline-block;">(*)</p></label><br />
+                    <input id="em" type="text" placeholder="VD:abc@gmail.com" /><br />
+                </div>
+                <div>
+                    <label>Giới tính:<p style="color:red; display:inline-block;">(*)</p></label><br />
+                    <label><input type="radio" name="G_T" />Nam</label>
+                    <label><input type="radio" name="G_T" />Nữ</label><br />
+                </div>
+                <div>
+                    <label>Sở thích:<p style="color:red; display:inline-block;">(*)</p></label>
+                    <fieldset>
+                        <label> <input type="checkbox" name="st" />Đọc Sách</label>
+                        <label> <input type="checkbox" name="st" />Du Lịch</label>
+                        <label> <input type="checkbox" name="st" />Âm Nhạc</label>
+                        <label> <input type="checkbox" name="st" />Ẩm Thực</label>
+                        <label> <input type="checkbox" name="st" />Khác </label>
+                    </fieldset>
+                </div>
+                <div>
+                    <label>Quốc tịch<p style="color:red; display:inline-block;">(*)</p></label><br />
+                    <select id="QT">
+                        <option>Chọn Quốc tịch</option>
+                        <option>Việt Nam</option>
+                        <option>Lào</option>
+                        <option>Campuchia</option>
+                        <option>USA</option>
+                    </select><br />
+                </div>
+                <div id="ghiChu">
+                    <label>Ghi chú</label><br />
+                    <textarea id="ghi_chu" rows="5" cols="60" placeholder="Nhập tối đa 199 kí tự"></textarea><br />
+                </div>
+                <button>
+                    <b>Đăng kí</b>
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

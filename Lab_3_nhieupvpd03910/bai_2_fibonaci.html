@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        /*Tạo trang web fibonaci.html và viết mã xuất 10 số đầu tiên trong dãy số fibonaci
+        (số tiếp theo bằng tổng 2 số kế trước nó) với 2 số đầu tiên (fo và f1) được nhập từ
+        bàn phím.*/
+        var f0 = parseInt(prompt("F0: "));
+        var f1 = parseInt(prompt("F1: "));
+        for (var i = 0; i < 10; i++) {
+            var f = f0 + f1;
+            f0 = f1;
+            f1 = f;
+            document.write(f + "<br>");
+        }
+    </script>
+</body>
+</html>

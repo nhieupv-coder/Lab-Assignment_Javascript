@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>font</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h2{
+            text-align:center;
+        }
+        #form_signup {
+            padding-top:0px;
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; 
+            border: 1px solid #888;
+            width: 80%; 
+        }
+        label{
+         
+           
+        }
+        input[type=text], input[type=number], input[type=checkbox], input[type=radio] {
+            margin-bottom: 20px;
+           
+        }
+        input[type=text] {
+            margin-left: 10px;
+            width: 300px;
+            border: none;
+            background-color: #f1f1f1;
+            height:20px;
+        }
+            input[type=text]:focus {
+                background-color:#cec8c8;
+               
+            }
+             input[type=number] {
+                width: 45px;
+            } #ST {
+                margin-left: 50px;
+            }
+        button {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            width: 100px;
+            border: none;
+            background-color: #ffd800;
+            opacity: 0.8;
+        }
+       button:hover{
+           opacity:2;
+       }
+    </style>
+    <script>
+        function kiemTra() {
+            var gt = document.getElementsByName("Gt");
+            if ((gt[0].checked == false) && (gt[1].checked == false)) {
+                alert("Bạn chưa chọn giới tính vui lòng chọn giới tính!");
+                return false;
+            }
+            //Kiểm tra số điện thoại:
+            var sdt = document.getElementById("sdt").value;
+            for (var i = 0; i < sdt.length; i++) {
+                if (isNaN(sdt[i]) == true) {
+                    alert("Số điện thoại bạn nhập không hợp lệ! \n nhấn ok để nhập lại");
+                    
+                    return false;
+                    break;
+                }
+            }
+            if ((sdt.length > 11) || (sdt.length <10)) {
+                alert("Số điện thoại không đúng vui lòng kiểm tra lại");
+                return false;
+            }
+                //kiem tra so thich
+                var check = false;
+                var so_thich = document.getElementsByName("ST");
+                for (var i = 0; i < so_thich.length; i++) {
+                    if (so_thich[i].checked === true) {
+                        check = true;
+                        break
+                    }
+                }
+                if (check == false) {
+                    alert("Bạn chưa chọn sở thích vui lòng chọn ít nhất 1 sở thích");
+                    return false;
+                }
+                alert("Thông tin của bạn đã được xử lí");
+                return true;
+        }
+        //nhấn vào để xuất hiện ô nhập sở thích.
+        function hienThi() {
+            var hien_thi = document.getElementById("so_thich");
+            hien_thi.style.display = "block";
+            var a = document.getElementsByName("ST");
+            if (a[2].checked == false) {
+                hien_thi.style.display = "none";
+            }
+        
+        }
+
+        
+        
+    </script>
+</head>
+<body   >
+    <div class="container">
+        <div id="form_signup">
+            <form class="input_form" onsubmit="return kiemTra()">
+                <h2>From Đăng kí</h2><br />
+                <b><label>Họ:</label></b>
+                <input type="text" name="lastname" placeholder="Nhập họ" required/><br />
+                <b><label>Tên:</label></b>
+                <input type="text" placeholder="Nhập tên" name="firstname" required /><br />
+                <b> <label>Ngày sinh: </label></b>
+                <label>Ngày: <input type="number" name="days" min="1" max="31" required /></label>
+                <label>Tháng:<input type="number" name=" month" min="1" max="12" required /></label>
+                <label>Năm:</label><input type="number" name="year" min="1990" max="3000" required /><br /></label>
+                <b><label>Giới tính:</label></b>
+                    <label><input type="radio" name="Gt" value="Nam" />Nam</label>
+                    <label><input type="radio" name="Gt" value="Nữ" />Nữ</label><br />
+                <b><label>Số điện thoại:</label></b>
+                <input type="text" id="sdt" placeholder="Nhập số điện thoại" required /><br />
+                <b> <label>Sở thích: </label></b>
+                    <div id="ST">
+                        <div class="S_T_1">
+                            <label><input type="checkbox" name="ST" />Đọc Sách</label>
+                            <label><input type="checkbox" name="ST" />Đá bóng</label>
+                            <label><input type="checkbox" name="ST" onclick="hienThi()" />Sở thích</label><br />
+                        </div>
+                        <div class="S_T_2">
+                            <label><input type="checkbox" name="ST" />Xem phim</label>
+                            <label><input type="checkbox" name="ST" />May vá</label>
+                        </div>
+                        <div class="S_T_3">
+                            <label><input type="checkbox" name="ST"  />Nghe nhạc</label>
+
+                        </div>
+                        <label id="so_thich" style="display:none">Sở thích: <input type="text" placeholder="Điền vào sở thích" /></label>
+                    </div>
+                    <div class="Button_signup">
+                        <button>Đăng kí</button>
+                    </div>
+</form>
+        </div>
+    </div>
+</body>
+</html>

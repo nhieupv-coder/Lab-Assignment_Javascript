@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        function kiemTra() {
+            // kiểm tra lloix để trống của ô sản phẩm.
+                var sp = document.getElementById("san_pham");
+                if (sp.value.length == 0) {
+                    alert("Vui lòng nhập tên sản phẩm!");
+                    return false;
+                }
+            //kiểm tra lỗi đã chọn loại sản phẩm hay chưa;
+                var loai = document.getElementById("loai");
+                if (loai.value.length == 0) {
+                    alert("Vui lòng chọn loại sản phẩm!");
+                    return false;
+                }
+            
+           //Kiểm tra đã nhập đơn giá vào hay chưa;
+                var dg = document.getElementById("don_gia");
+                if (dg.value == "") {
+                    alert("Vui lòng nhập số ");
+                    return false;
+                } else {
+                    if (isNaN(dg.value) == true) {
+                        alert("Vui lòng nhập số!");
+                        return false;
+                    }
+                    else {
+                        //kiểm tra đơn giá nhập vào có phải số dương hay không(đơn giá phải là số dương)
+                        if (parseFloat(dg.value) <= 0) {
+                            alert("vui lòng nhập số dương!");
+                            return false;
+                        }
+                    }
+                   
+                }
+            //kiểm tra địa chỉ có được chọn hay chưa
+                var kt = document.getElementsByName("dia_chi");
+                if ((kt[0].checked == false) && (kt[1].checked == false))
+                {
+                    alert("Vui lòng chọn nơi nhận hàng!");
+                    return false;
+                }
+            alert("Thông tin đã được gửi tới server");
+            return true;
+        }
+        function hien_thi(){
+            var a = document.getElementById("phi_vc");
+            a.style.display = "block";
+        }
+        function none() {
+            var a = document.getElementById("phi_vc");
+            a.style.display = "none";
+        }
+    </script>
+    <style>
+       .containner{
+           margin-left:10px;
+       }
+       #loai{
+           width:400px;
+       }
+        input[type = text]{
+            Width:400px;
+            margin-top:5px;
+        }
+        button {
+            width: 30%;
+            cursor: pointer;
+            font-family: Arial;
+            overflow: none;
+            background-color: #ff0000;
+            border: none;
+            font-size: 20px;
+            color: white;
+            opacity: 0.7;
+        }
+       button:hover{
+          opacity:1;
+       }
+           
+    </style>
+</head>
+<body>
+    <div class="containner">
+        <h2>ĐẶT HÀNG</h2>
+        <hr />
+        <form onsubmit="return kiemTra()">
+            <div class=" =form">
+                <label>Sản phẩm</label><br />
+                <input id="san_pham" type="text" /><br />
+                <label>Loại</label><br />
+                <select id="loai">
+                    <option></option>
+                    <option value="DT">Điện thoại</option>
+                    <option value="MT">Máy tính</option>
+                </select><br />
+                <label>Đơn giá</label><br />
+                <input id="don_gia" type="text" /><br />
+                <p>
+                    <label>Nơi nhận hàng:</label><br />
+                    <label><input type="radio" name="dia_chi" onclick="none()" />Nội thành</label>
+                    <label><input type="radio" name="dia_chi" onclick="hien_thi()" />Ngoại thành</label>
+                </p>
+                <p id="phi_vc" style="display:none">
+                    <label>Phí vận chuyển</label>
+                    <input value="100000" readonly />
+                </p>
+            </div>
+            <hr />
+            <button>Đặt mua</button>
+        </form>
+    </div>
+</body>
+</html>

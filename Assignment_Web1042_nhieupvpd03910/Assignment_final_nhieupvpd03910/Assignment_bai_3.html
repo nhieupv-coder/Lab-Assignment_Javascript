@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Giỏ Hàng</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+           
+            th{
+                background-color: lightskyblue;
+            }
+            th, td{
+            text-align:left;
+            padding:10px;
+            }
+            table tr:nth-child(even){
+            background-color:white;
+            }
+            table tr:nth-child(1){
+                background-color:skyblue;
+            }
+            
+        </style>
+        <script>
+          
+            function myFunction() {
+                      var x = document.getElementById("mySelect").value;
+                      document.getElementById("demo").innerHTML = "You selected: " + x+"$";
+                      for (var i=0;i<7;i++){
+                              gia=document.getElementById("pro"+i).innerText
+                              if(parseFloat(gia)<=parseFloat(x)){
+                                     document.getElementById("sp"+i).style.display="";
+                              }else {
+                                     document.getElementById("sp"+i).style.display="none";
+                              }
+                      }
+               } 
+               function tong(i) {
+                      var check=document.getElementById("check"+i);
+                      var thanhtien=document.getElementById("thanhtien").innerText;
+                      if (check.checked){ 
+                              var gia=document.getElementById("pro"+i).innerText;
+                              var soLuong=document.getElementById("qty"+i).value;
+                              if(soLuong!=""){
+                                     document.getElementById("amount"+i).innerText=parseFloat(gia)*parseFloat(soLuong);
+                              }
+                      }else {
+                              document.getElementById("amount"+i).innerText=0;
+                      }
+                      Tongtien();
+               }
+
+               function Tongtien() {
+                      tt=0;
+                      for (var i=0;i<7;i++){
+                              var check=document.getElementById("check"+i);
+                              if(check.checked ){
+                                     var t=document.getElementById("amount"+i).innerText;
+                                     if (t!==""){
+                                     tt=tt+parseFloat(t);
+                                     }
+                              }
+                      }
+                       document.getElementById("thanhtien").innerText = tt;
+               }
+            
+        </script>
+    </head>
+    <body onload="disabled()">
+    <center>
+        <h3>BÁN HÀNG</h3>
+        <select id="mySelect" style="border:2px solid orangered" onchange="myFunction()">
+            <option value="10000">Mức Giá</option>
+            <option value="90">90$</option>
+            <option value="300">300$</option>
+            <option value="500">500$</option>
+            <option value="600">600$</option>
+
+        </select>
+        <p id="demo"></p>
+        <hr width="670px">
+        <table border="1" style="width: 50%">
+            
+                <tr >
+                    <td><label ><input  id="check" type="checkbox" value="1"></label></td>
+                    <th>Hàng Hóa </th>
+                    <th>Đơn Giá </th>
+                    <th>Số Lượng</th>
+                    <th>Thành Tiền</th>
+                </tr>
+                <tr id="sp0">
+                    <td><label><input id="check0" type="checkbox" onclick="tong(0)"  ></label></td>
+                    <td> Iphone 11</td>
+                    <td><label id="pro0" data-price="1000" value="700">700</label></td>
+                    <td><input id="qty0" onchange="tong(0)" type="number" min="0" />  </td>
+                    <td >  <span id="amount0"></span></td>
+                </tr> 
+
+                <tr id="sp1">
+                    <td><label><input id="check1" type="checkbox" onclick="tong(1)"  ></label></td>
+                    <td>Samsung </td>
+                    <td><label id="pro1" data-price="400">400</label></td>
+                    <td><input id="qty1" onchange="tong(1)" type="number" min="0" /></td>
+                    <td>  <span id="amount1"></span></td>
+                </tr>
+                <tr id="sp2">
+                    <td><label><input id="check2" type="checkbox" onclick="tong(2)"  ></label></td>
+                    <td>Nokia </td>
+                    <td><label id="pro2" data-price="100">100</label></td>
+                    <td><input id="qty2" type="number" onchange="tong(2)" min="0" /></td>
+                    <td>  <span id="amount2"></span></td>
+                </tr>
+                <tr id="sp3">
+                    <td><label><input id="check3" type="checkbox" onclick="tong(3)"></label></td>
+                    <td>SoNy </td>
+                    <td><label id="pro3" data-price="450">450</label></td>
+                    <td><input id="qty3" onchange="tong(3)" type="number" min="0"> </td>
+                    <td>  <span id="amount3"></span></td>
+                </tr>
+                <tr id="sp4">
+                    <td><label><input id="check4" type="checkbox" onclick="tong(4)"></label></td>
+                    <td>Motorola</td>
+                    <td><label id="pro4" data-price="100">180</label></td>
+                    <td><input id="qty4" onchange="tong(4)" type="number" min="0"> </td>
+                    <td>  <span id="amount4"></span></td>
+                </tr>
+                <tr id="sp5">
+                    <td><label><input id="check5" type="checkbox" onclick="tong(5)"></label></td>
+                    <td>Oppo</td>
+                    <td><label id="pro5" data-price="600">600</label></td>
+                    <td><input id="qty5" onchange="tong(5)" type="number" min="0"> </td>
+                    <td>  <span id="amount5"></span></td>
+                </tr>
+                <tr id="sp6">
+                    <td><label><input id="check6" type="checkbox" onclick="tong(6)"></label></td>
+                    <td>Xiaomi Redmi K20 Pro</td>
+                    <td><label id="pro6" data-price="90">90</label></td>
+                    <td><input id="qty6" onchange="tong(6)" type="number" min="0"> </td>
+                    <td>  <span id="amount6"></span></td>
+
+                </tr>
+                <tr>
+
+                    <th style="text-align:center;background-color:#cccccc" colspan="4" >TỔNG</th>
+                    <td ><span id="thanhtien" >0</span></td>
+
+                </tr>
+
+        </table>
+    </center>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script >
+        var kt = 0;
+    function mo() {
+        facebook = window.open('https://www.facebook.com/nhieu.phamvan.52', 'canhan', 'width=500,height=600');
+    }
+
+    function dong() {
+        facebook.close();
+        kt+=1;
+    }
+        function kiemtra() {
+            if (kt == 0) {
+                alert("chưa đóng");
+            } else {
+                alert("đã đóng");
+            }
+            kt = 0;
+        }
+    </script>
+</head>
+<body>
+    <button  onclick="mo()">Mở cửa sổ mới</button>
+    <button  onclick="dong()">Đóng cửa sổ mới</button>
+    <button onclick="kiemtra()">Kiểm tra cửa sổ mới đã đóng hay chưa</button>
+
+   
+</body>
+</html>

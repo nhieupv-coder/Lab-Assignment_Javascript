@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>FPT POLY</title>
+</head>
+<body>
+    <script>
+        var ptb2 = new Object();
+        ptb2.a = prompt("Hệ số a: ");
+        ptb2.b = prompt("Hệ số b: ");
+        ptb2.c = prompt("hệ số c: ");
+        ptb2.giai = function () {
+            var delta;        
+            delta = Math.pow(ptb2.b, 2) - 4 * ptb2.a * ptb2.c;
+            if (delta < 0) {
+                alert("Phương trình vô ngiệm");
+            }
+            if (delta == 0) {
+                var x = (-ptb2.b) / (2 * ptb2.a);
+                alert("Phương trình có nghiệm kép x = " + x);
+            }
+            if (delta > 0) {
+                var x1 = ((-ptb2.b) + Math.sqrt(delta)) / (2 *ptb2.a);
+                var x2 = ((-ptb2.b) - Math.sqrt(delta)) / (2 *ptb2.a);
+                alert("Phương trình có nghiệm là:\nx1= "+x1+"\nx2 = "+x2);  
+            }
+        }
+
+    </script>
+    <div style="text-align:center;">
+        <button style=" width: 40px; height: 30px; color: red;" onclick="ptb2.giai()">Giải</button>
+    </div>
+</body>
+
+</html>

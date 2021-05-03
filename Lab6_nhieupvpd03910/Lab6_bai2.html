@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>lab</title>
+    <script>
+        var index = 0;
+        var arr = [];
+        function loadanh() {
+            for (var i = 0; i < 6; i++) {
+                arr[i] = new Image();
+                arr[i].src = "Anh/" + i + ".JPG";
+            }
+          
+        }
+        function next() {
+            index++;
+            if (index > 5) {
+                index = 0;
+            }
+            var a = document.getElementById("anh");
+            a.src = arr[index].src;
+            document.getElementById("vt").innerHTML = index+1;
+        }
+        function prev() {
+            index--;
+            if (index < 0) {
+                index = 5;
+            }
+            var a = document.getElementById("anh");
+            a.src = arr[index].src;
+            document.getElementById("vt").innerHTML = index + 1;
+        }
+        function last() {
+            index = 5;
+            var a = document.getElementById("anh");
+            a.src = arr[index].src;
+            document.getElementById("vt").innerHTML = index + 1;
+        }
+        function First() {
+            index = 0;
+            var a = document.getElementById("anh");
+            a.src = arr[index].src;
+            document.getElementById("vt").innerHTML = index + 1;
+        }
+    </script>
+</head>
+<body onload="loadanh()">
+    <div style="text-align:center;">
+        <img id="anh" src="Anh/0.jpg" />
+        <p id="vt" style="position:fixed; top:0px;left:100px;">1</p>
+        <hr />
+        <input type="button" onclick="First()" value="First" />
+        <input type="button" onclick="prev()" value="Prev" />
+        <input type="button" onclick="next()" value="Next" />
+        <input type="button" onclick="last()" value="Last" />
+        
+    </div>
+</body>
+</html>

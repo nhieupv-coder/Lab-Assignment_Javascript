@@ -1,0 +1,28 @@
+﻿ <!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+  <script>
+      function Chu_vi(dai, rong) {
+          return (dai + rong) * 2;
+      }
+      //dientich
+      function Dien_tich(dai, rong) {
+          return dai * rong;
+      }
+      //lay thong tin
+      var dai = parseInt(prompt("Nhập chiều dài: "));
+      var rong = parseInt(prompt("Nhập chiều rộng: "));
+      //hiển thị chu vi-diện tích
+      var chu_vi = Chu_vi(dai, rong);
+      var dien_tich = Dien_tich(dai, rong);
+
+      document.write("chu vi la:" + chu_vi);
+      document.write(" dien tich la:" + dien_tich);
+  </script>
+</body>
+</html>

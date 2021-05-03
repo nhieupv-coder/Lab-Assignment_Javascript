@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        var linebreak = "<br>"
+        var fullname;
+        fullname = prompt("Nhập tên: ");
+        var points = parseFloat(prompt("Nhập điểm:"));
+        var chu_hoa = fullname.toUpperCase();
+        document.write("Họ và tên:" + chu_hoa);
+        document.write(linebreak);
+        if (points < 5) {
+            document.write("   Rớt");
+        } else {
+            document.write("   Đậu");
+        }
+    </script>
+
+</body>
+</html>

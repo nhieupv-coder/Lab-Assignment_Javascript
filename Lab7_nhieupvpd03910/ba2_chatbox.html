@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+   <!--Đoạn script để khi báo angular js và firebase-->
+    <script data-require="angular.js@1.5.0" data-semver="1.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script data-require="angular.js@1.5.0" data-semver="1.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js"></script>
+    <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+   <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+    <script>
+    //khai báo 1 biến app với đặt modul và firebase để kết nối với firebase
+        var app = angular.module("myApp", ['firebase']);
+        //Khai báo 1 cái controller-->các khai báo: lấy biến app -->.controller-->("Maincontroller"(ten của controller))
+        //-->khai báo 1 cái function(con trỏ $scope,mảng $fribaseArray
+        app.controller("MainController", function ($scope, $firebaseArray) {
+            //trong hàm function: tạo biến objec de ket noi voi fribase
+            var ref = new Firebase("https://udemy-project-1.firebaseio.com/");
+            //gan vao csdl fribase
+            $scope.data = $firebaseArray(ref);
+            //tao 1 cai ham de ghi du lieu
+    $scope.addMessage = function (e) {
+        //listen for return key
+        if (e.keyCode === 13 && $scope.msg) {
+            var name = $scope.name || "hacker";
+            $scope.data.$add({ from: name, body: $scope.msg });
+            $scope.msg = "";
+        }
+    }
+});</script>
+    <style>
+        li:nth-child(2n+1){
+            color:red;
+        }
+        li{
+            color:brown;
+        }
+    </style>
+</head>
+<body ng-controller="MainController">
+    <div style="color:green; margin:2px;">Name: {{name}}</div>
+    <div style="margin:2px;">
+        Name: <input type="text" ng-model="name" id="nameInput" placeholder="nhap ten...." />
+    </div>
+    <div style="margin:3px;">
+        <!--ng-model put data of selector || ng-keydown if click enter it call addMessage-->
+       Message: <input placeholder="Nhập nội dung..."  ng-model="msg" ng-keydown="addMessage($event)" type="text"/>
+    </div>
+    <!--hiển thị nội dung chat-->
+    <div style="margin:2px; border:1px solid green;">
+        Nội dung trò chuyện:
+        <ul>
+            <li ng-repeat="msg in data">
+                <strong>{{msg.from}} </strong> nói:{{msg.body}}
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

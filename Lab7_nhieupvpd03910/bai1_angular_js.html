@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>Đồng hồ đếm ngược</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <style>
+        * {
+            padding-top: 0px;
+            margin: 0px;
+          
+        }
+        .container {
+            padding-top:20px;
+            text-align: center;
+        }
+       button{
+           color:white;
+           border-radius:20px;
+           border:none;
+           width:100px;
+           background:red;
+           opacity:0.7;
+       }
+        button:hover{
+            opacity:1;
+        }
+        button:active {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var myController = function ($scope) {
+            $scope.timer = 1;
+            $scope.count10 = function () {
+                setInterval(function () {
+                    if (10 > $scope.timer) {
+                        $scope.timer++;
+                    } else {
+                        $scope.timer = 1;
+                    }
+                    $scope.$apply();
+                }, 1000);
+                $scope.$apply();
+            };
+        };
+    </script>
+    <div class='container' ng-app>
+        <div ng-controller='myController'>
+            <h2>{{timer}}</h2>
+            <button class='btn btn-primary' ng-click='count10()'>Start count to 10</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*Chương trình sinh một số nguyên từ 0 đến 100 (gọi là số bí mật). Người dùng
+nhập từ bàn phím một số nguyên để đoán. Việc đoán này xảy ra 3 trường hợp*/
+      
+        while (true) {
+            var soDoan = parseInt(prompt("Nhập số bạn đoán:"));
+            var soTrungThuong = Math.round((Math.random() * 100));
+            if (soDoan == soTrungThuong) {
+                alert("Chúc mừng bạn đã đoán trúng");
+                break;
+            } else if (soDoan > soTrungThuong) {
+                alert("Số bạn đoán lớn hơn số bí mật\nVui lòng chọn lại!");
+                
+            } else {
+                alert("Số bạn đoán nhỏ hơn số bí mật\nVui lòng chọn lại!");
+            }
+        }
+    </script>
+</body>
+</html>

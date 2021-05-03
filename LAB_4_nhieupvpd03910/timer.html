@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title>FPT POLY</title>
+</head>
+<body>
+    <script>
+        function ngaygio() {
+            var now = new Date();
+            var h = now.getHours();
+            var m = now.getMinutes();
+            var s = now.getSeconds();
+            document.write(h + ":" + m + ":" + s);
+            location.reload();
+        }
+        setTimeout("ngaygio()", 1000);
+        
+    </script>
+</body>
+</html>

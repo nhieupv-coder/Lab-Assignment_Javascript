@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var out = new Image();
+        out.src = "Anh/0.JPG";
+        var over = new Image();
+        over.src = "Anh/1.JPG";
+        function vao() {
+            var a = document.getElementById("anh");
+            a.src = out.src;
+        }
+        function ra() {
+            var a = document.getElementById("anh");
+            a.src = over.src;
+        }
+
+    </script>
+    <style>
+   .ha{
+        text-align:center;
+    }
+    </style>
+</head>
+<body >
+    <div class="ha">
+        <img id="anh" src="Anh/0.jpg"
+             onmouseover="vao()"
+             onmouseout="ra()" />
+    </div>
+</body>
+</html>

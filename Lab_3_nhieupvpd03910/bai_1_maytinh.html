@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        var a = prompt("Nhập toán hạng a: ");
+        var b = prompt("Nhập toán hạng b: ");
+        var o = prompt("Toán tử: ");
+        switch (o) {
+            case '+':
+                var kq = a + b;
+                alert(a + " + " + b + " = " + kq);
+                break;
+            case '-':
+                var kq = a - b;
+                alert(a + "-" + b + "=" + kq);
+                break;
+            case 'x':
+                var kq = a * b;
+                alert(a + "x" + b + "=" + kq);
+                break;
+            case ':':
+                var kq = a / b;
+                alert(a + ":" + b + "=" + kq);
+                break;
+            default:
+                alert(o+"Không phải là toán tử nhé");
+        }
+    </script>
+</body>
+</html>

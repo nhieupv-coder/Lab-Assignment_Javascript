@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        //nhập vào nếu không phải là số thì đưa ra thông báo và nhập lại.
+        do {
+            var x = parseFloat(prompt("Mời nhập vào một số: "));
+            if (isNaN(x) == true) {
+                alert("giá trị bạn nhập không phải là số\n Mời nhập lại ");
+            }
+        } while ((isNaN(x) == true));
+         //tính toán căn bậc 2 bình phương và làm tròn số.
+        var a = Math.sqrt(x);
+        var b = Math.pow(x, 2);
+        var c = Math.round(x);
+        var linebreak = "<br>";
+        //in ra màn hình kết quả.
+        document.write("Căn bậc hai của x la:" + a);
+        document.write(linebreak);
+        document.write("Bình phương của x là: " + b);
+        document.write(linebreak);
+        document.write("Làm tròn x là: " + c);
+
+        </script>
+</body>
+</html>

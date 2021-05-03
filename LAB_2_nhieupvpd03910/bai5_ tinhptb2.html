@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        var linebreak = "<br>"
+        var a, b, c;
+        a = prompt("a= ");
+        b = prompt("b= ");
+        c = prompt("c= ");
+        if (a == 0) {
+            if (b == 0 && c == 0) {
+                document.write("Phương trình có vô số nghiệm");
+            } else if (b == 0 && c != 0) {
+                document.write("Phương trình vô nghiệm");
+            } else {
+               var x = (-c) / b;
+                document.write("Nghiệm của phương trình là: x = " + x);
+            }
+        } else {
+            var delta = Math.pow(b, 2) - (4 * a * c);
+            if (delta < 0) {
+                document.write("Phương trình vô nghiệm");
+            } else if (delta == 0) {
+                document.write("Phương trình có nghiệm kép: " + (-b / (2 * a)));
+            } else {
+                document.write("Phương trình có hai nhiệm phân biệt:");
+                document.write(linebreak);
+                var x1 = ((-b) + Math.sqrt(delta)) / (2 * a);
+                var x2 = ((-b) - Math.sqrt(delta)) / (2 * a);
+                document.write(x1);
+                document.write(linebreak);
+                document.write(x2);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <style>
+            button {
+                width: 80px;
+                height: 80px;
+            }
+        </style>
+        <script>
+            var clickX = true;
+            var count = 0;
+            function mark(index) {
+                
+                var button = document.getElementsByTagName("button")[index];
+                button.innerText = clickX ? "X" : "O";
+                button.style.backgroundColor = "aqua";
+                button.setAttribute("disabled","true");
+                if (clickX == false) {
+                    button.style.backgroundColor = "yellow";
+                }
+                clickX = !clickX;
+                count++;
+                if (count == 9) {
+                    alert("Game over");
+                    location.reload();
+                }
+            }
+        </script>
+    </head>
+    <body style="text-align:center">
+        <h3>TICTACTOE GAME</h3>
+        <table align="center">
+            <tr>
+                <td><button onclick="mark(0)"></button></td>
+                <td><button onclick="mark(1)"></button></td>
+                <td><button onclick="mark(2)"></button></td>
+            </tr>
+            <tr>
+                <td><button onclick="mark(3)"></button></td>
+                <td><button onclick="mark(4)"></button></td>
+                <td><button onclick="mark(5)"></button></td>
+            </tr>
+            <tr>
+                <td><button onclick="mark(6)"></button></td>
+                <td><button onclick="mark(7)"></button></td>
+                <td><button onclick="mark(8)"></button></td>
+            </tr>
+        </table>
+    </body>
+</html>
+
+</body>
+</html>
